@@ -1,10 +1,6 @@
 declare function OfflineIconfont(config: OfflineIconfont.OfflineIconfontConfig): void;
 
-const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
-
 declare namespace OfflineIconfont {
-  const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
-
   interface OfflineIconfontConfig {
     /**
      * css url from your iconfont.cn project
@@ -14,7 +10,7 @@ declare namespace OfflineIconfont {
      * where to locate font assets
      * @default process.cwd()
      */
-    targetDir?: string;
+    dir?: string;
     /**
      * file name for font asset
      * @default 'iconfont'
@@ -28,7 +24,7 @@ declare namespace OfflineIconfont {
     /**
      * specify which file to download
      */
-    extnameList?: Array<typeof defaultExtnameList>
+    extnameList?: Array<'css' | 'eot' | 'woff' | 'woff2' | 'ttf' | 'svg'>;
   }
 }
 

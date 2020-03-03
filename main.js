@@ -21,13 +21,13 @@ const defaultExtnameList = ['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
 // 默认的 iconfont.cn 下载下来的 css 中包含的是字体文件的在线地址
 // 需要转换成本地字体文件地址
 async function offlineCss(config) {
-  const { cssUrl, targetDir, filename } = config
+  const { cssUrl, dir, filename } = config
   const downloadUrlPrefix = cssUrl.replace(/.css$/g, '')
 
-  const cssFilePath = path.join(targetDir, filename + '.css')
+  const cssFilePath = path.join(dir, filename + '.css')
 
-  if (!fs.existsSync(targetDir)) {
-    throw new Error('🚔 Cannot found the css file:' + targetDir)
+  if (!fs.existsSync(dir)) {
+    throw new Error('🚔 Cannot found the css file:' + dir)
   }
 
   const spinner = ora('🚀 Starting to offline css file').start()
@@ -42,12 +42,12 @@ async function offlineCss(config) {
 
 const backupSuffix = '_iconfont_asset_backup'
 
-async function backup(filenameList, targetDir) {
+async function backup(filenameList, dir) {
   const spinner = ora('🔙 Trying to backup your files').start()
   try {
     await Promise.all(
       filenameList.map(async filename => {
-        const targetFilePath = path.join(targetDir, filename)
+        const targetFilePath = path.join(dir, filename)
         if (fs.existsSync(targetFilePath)) {
           const newFilename = targetFilePath + backupSuffix
           await fsRename(targetFilePath, newFilename)
@@ -63,17 +63,17 @@ async function backup(filenameList, targetDir) {
     console.log('🏬 Trying to restore your files')
     restore(
       filenameList.map(n => n + backupSuffix),
-      targetDir
+      dir
     )
   }
 }
 
-async function restore(filenameList, targetDir) {
+async function restore(filenameList, dir) {
   const spinner = ora('🏬 Trying to restore your files').start()
   try {
     await Promise.all(
       filenameList.map(async filename => {
-        const targetFilePath = path.join(targetDir, filename)
+        const targetFilePath = path.join(dir, filename)
         if (fs.existsSync(targetFilePath)) {
           const originFilename = targetFilePath.replace(
             new RegExp(backupSuffix, '$'),
@@ -91,12 +91,12 @@ async function restore(filenameList, targetDir) {
   }
 }
 
-async function removeBackups(filenameList, targetDir) {
+async function removeBackups(filenameList, dir) {
   const spinner = ora('␡ Trying to clean up backup files').start()
   try {
     await Promise.all(
       filenameList.map(async filename => {
-        const targetFilePath = path.join(targetDir, filename)
+        const targetFilePath = path.join(dir, filename)
         if (fs.existsSync(targetFilePath)) {
           await fsUnlink(targetFilePath)
         }
@@ -112,7 +112,7 @@ async function removeBackups(filenameList, targetDir) {
 async function download(config) {
   const {
     cssUrl,
-    targetDir = process.cwd(),
+    dir = process.cwd(),
     filename = 'iconfont',
     cssOffline = true,
     extnameList = defaultExtnameList
@@ -122,17 +122,17 @@ async function download(config) {
   }
 
   const filenameList = extnameList.map(extname =>
-    path.join(targetDir, `${filename}.${extname}`)
+    path.join(dir, `${filename}.${extname}`)
   )
 
   try {
-    if (!fs.existsSync(targetDir)) {
-      console.warn('🐛 Invalid target dir' + targetDir)
-      await fsMkdir(targetDir, { recursive: true })
-      console.log('🚀 Created this dir:', targetDir)
+    if (!fs.existsSync(dir)) {
+      console.warn('🐛 Invalid target dir' + dir)
+      await fsMkdir(dir, { recursive: true })
+      console.log('🚀 Created this dir:', dir)
     }
 
-    await backup(filenameList, targetDir)
+    await backup(filenameList, dir)
 
     const downloadUrlPrefix = cssUrl.replace(/.css$/g, '')
 
@@ -144,7 +144,7 @@ async function download(config) {
         const downloadUrl = `${downloadUrlPrefix}.${extname}`
         return streamPipeline(
           got.stream('http:' + downloadUrl),
-          fs.createWriteStream(path.join(targetDir, `${filename}.${extname}`))
+          fs.createWriteStream(path.join(dir, `${filename}.${extname}`))
         )
       })
     )
@@ -152,17 +152,17 @@ async function download(config) {
     spinner.succeed('💪 Finish downloading')
 
     if (cssOffline && extnameList.includes('css')) {
-      await offlineCss({ cssUrl, targetDir, filename })
+      await offlineCss({ cssUrl, dir, filename })
     }
 
-    await removeBackups(filenameList, targetDir)
+    await removeBackups(filenameList, dir)
   } catch (err) {
     console.error('🚔 Restore failed')
     console.error(err)
 
     await restore(
       filenameList.map(filename => filename + backupSuffix),
-      targetDir
+      dir
     )
   }
 }

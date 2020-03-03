@@ -23,7 +23,7 @@ const download = require('offline-iconfont')
 (async () => {
   await download({
     cssUrl: '//at.alicdn.com/t/font_1231231.css', // your iconfont.cn project url
-    targetDir,
+    dir,
     extnameList: ['svg', 'eot'],
     cssOffline: false
   })
@@ -44,7 +44,7 @@ interface OfflineIconfontConfig {
    * where to locate font assets
    * @default process.cwd()
    */
-  targetDir?: string;
+  dir?: string;
   /**
    * file name for font asset
    * @default 'iconfont'
