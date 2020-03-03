@@ -9,15 +9,18 @@
   "scripts": {
     "download": "node main.js",
     "prepublishOnly": "np --yolo --no-publish",
-    "test": "jest test.js"
+    "test": "jest test.js",
+    "coverage": "nyc report --reporter=lcov --reporter=html && codecov -f .nyc_output/*.json"
   },
   "dependencies": {
     "got": "^10.6.0",
-    "ora": "^4.0.3"
+    "ora": "^4.0.3",
+    "rename": "^1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
     "@commitlint/config-conventional": "^8.2.0",
+    "codecov": "^3.6.5",
     "eslint": "^6.8.0",
     "eslint-config-prettier": "^6.10.0",
     "eslint-config-prettier-standard": "^3.0.1",
