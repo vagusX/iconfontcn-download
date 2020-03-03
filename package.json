@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "got": "^10.6.0",
-    "ora": "^4.0.3"
+    "ora": "^4.0.3",
+    "rename": "^1.0.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^8.2.0",
