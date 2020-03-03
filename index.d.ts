@@ -1,8 +1,8 @@
 declare function IconfontCnDownload(config: IconfontCnDownload.IconfontCnDownloadConfig): void;
 
-declare namespace IconfontCnDownload {
-  const { cssUrl, targetDir, filename = 'iconfont', offline = true } = config
+const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
 
+declare namespace IconfontCnDownload {
   const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
 
   interface IconfontCnDownloadConfig {
@@ -25,6 +25,9 @@ declare namespace IconfontCnDownload {
      * @default true
      */
     cssOffline?: boolean;
+    /**
+     * specify which file to download
+     */
     extnameList?: Array<typeof defaultExtnameList>
   }
 }
