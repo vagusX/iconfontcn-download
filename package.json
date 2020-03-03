@@ -1,9 +1,9 @@
 {
-  "name": "iconfontcn-download",
+  "name": "download-iconfont-cn",
   "version": "0.0.1",
   "main": "main.js",
   "typings": "index.d.ts",
-  "repository": "git@github.com:vagusX/iconfontcn-download.git",
+  "repository": "git@github.com:vagusX/download-iconfont-cn.git",
   "author": "vagusX <vagusxl@gmail.com>",
   "license": "MIT",
   "scripts": {

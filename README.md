@@ -1,10 +1,10 @@
-# iconfontcn-download
+# download-iconfont-cn
 
 An util to help you download fonts and assets from [iconfont.cn](http://iconfont.cn/)
 
-[![NPM version](https://img.shields.io/npm/v/@vagusx/iconfontcn-download.svg?style=flat)](https://npmjs.org/package/@vagusx/iconfontcn-download)
-[![NPM downloads](http://img.shields.io/npm/dm/@vagusx/iconfontcn-download.svg?style=flat)](https://npmjs.org/package/@vagusx/iconfontcn-download)
-[![CircleCI](https://circleci.com/gh/vagusx/iconfontcn-download.svg?style=svg)](https://circleci.com/gh/vagusx/iconfontcn-download)
+[![NPM version](https://img.shields.io/npm/v/@vagusx/download-iconfont-cn.svg?style=flat)](https://npmjs.org/package/@vagusx/download-iconfont-cn)
+[![NPM downloads](http://img.shields.io/npm/dm/@vagusx/download-iconfont-cn.svg?style=flat)](https://npmjs.org/package/@vagusx/download-iconfont-cn)
+[![CircleCI](https://circleci.com/gh/vagusx/download-iconfont-cn.svg?style=svg)](https://circleci.com/gh/vagusx/download-iconfont-cn)
 
 ## Options
 
@@ -45,7 +45,7 @@ interface IconfontCnDownloadConfig {
 ## Usage
 
 ```js
-const download = require('iconfontcn-download')
+const download = require('download-iconfont-cn')
 
 (async () => {
   await download({

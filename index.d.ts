@@ -1,11 +1,11 @@
-declare function IconfontCnDownload(config: IconfontCnDownload.IconfontCnDownloadConfig): void;
+declare function DownloadIconfontCN(config: DownloadIconfontCN.DownloadIconfontCNConfig): void;
 
 const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
 
-declare namespace IconfontCnDownload {
+declare namespace DownloadIconfontCN {
   const defaultExtnameList = <const>['css', 'eot', 'woff', 'woff2', 'ttf', 'svg']
 
-  interface IconfontCnDownloadConfig {
+  interface DownloadIconfontCNConfig {
     /**
      * css url from your iconfont.cn project
      */
@@ -32,4 +32,4 @@ declare namespace IconfontCnDownload {
   }
 }
 
-export = IconfontCnDownload;
+export = DownloadIconfontCN;
