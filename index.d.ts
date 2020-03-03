@@ -21,7 +21,7 @@ declare namespace IconfontCnDownload {
      * replace font asset path to local relative path
      * @default true
      */
-    offline?: boolean;
+    cssOffline?: boolean;
   }
 }
 
