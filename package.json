@@ -1,0 +1,15 @@
+{
+  "name": "iconfontcn-download",
+  "version": "1.0.0",
+  "main": "main.js",
+  "repository": "git@github.com:vagusX/iconfontcn-download.git",
+  "author": "vagusX <vagusxl@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "download": "node main.js"
+  },
+  "dependencies": {
+    "got": "^10.6.0",
+    "ora": "^4.0.3"
+  }
+}
