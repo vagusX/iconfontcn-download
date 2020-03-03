@@ -2,16 +2,40 @@
 
 An util to help you download fonts and assets from [iconfont.cn](http://iconfont.cn/)
 
-[![NPM version](https://img.shields.io/npm/v/@vagusx/offline-iconfont.svg?style=flat)](https://npmjs.org/package/@vagusx/offline-iconfont)
-[![NPM downloads](http://img.shields.io/npm/dm/@vagusx/offline-iconfont.svg?style=flat)](https://npmjs.org/package/@vagusx/offline-iconfont)
+[![NPM version](https://img.shields.io/npm/v/@vagusx/offline-iconfont.svg?style=flat)](https://www.npmjs.com/package/offline-iconfont)
+[![NPM downloads](http://img.shields.io/npm/dm/@vagusx/offline-iconfont.svg?style=flat)](https://www.npmjs.com/package/offline-iconfont)
 [![CircleCI](https://circleci.com/gh/vagusx/offline-iconfont.svg?style=svg)](https://circleci.com/gh/vagusx/offline-iconfont)
+
+## Installation
+
+```bash
+$ npm install offline-iconfont
+
+# or use yarn
+$ yarn add offline-iconfont
+```
+
+## Usage
+
+```js
+const download = require('offline-iconfont')
+
+(async () => {
+  await download({
+    cssUrl: '//at.alicdn.com/t/font_1231231.css', // your iconfont.cn project url
+    targetDir,
+    extnameList: ['svg', 'eot'],
+    cssOffline: false
+  })
+})()
+```
 
 ## Options
 
 ```ts
-function IconfontCnDownload(config: IconfontCnDownloadConfig): void;
+function OfflineIconfont(config: OfflineIconfontConfig): void;
 
-interface IconfontCnDownloadConfig {
+interface OfflineIconfontConfig {
   /**
    * css url from your iconfont.cn project
    */
@@ -41,20 +65,5 @@ interface IconfontCnDownloadConfig {
 ## Find your [iconfont.cn](http://iconfont.cn/) project url
 
 ![iconfont.cn](./assets/sample.png)
-
-## Usage
-
-```js
-const download = require('offline-iconfont')
-
-(async () => {
-  await download({
-    cssUrl: '//at.alicdn.com/t/font_1231231.css', // your iconfont.cn project url
-    targetDir,
-    extnameList: ['svg', 'eot'],
-    cssOffline: false
-  })
-})()
-```
 
 [![JavaScript Style Guide](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
