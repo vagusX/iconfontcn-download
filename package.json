@@ -1,6 +1,6 @@
 {
   "name": "offline-iconfont",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "main.js",
   "typings": "index.d.ts",
   "repository": "git@github.com:vagusX/offline-iconfont.git",
