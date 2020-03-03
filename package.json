@@ -1,6 +1,6 @@
 {
   "name": "iconfontcn-download",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "main.js",
   "typings": "index.d.ts",
   "repository": "git@github.com:vagusX/iconfontcn-download.git",
@@ -34,6 +34,9 @@
     "np": "^6.2.0",
     "prettier": "1.19.1",
     "prettier-config-standard": "^1.0.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "husky": {
     "hooks": {
