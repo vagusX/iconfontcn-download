@@ -6,7 +6,7 @@ const { promisify } = require('util')
 const got = require('got')
 const ora = require('ora')
 
-const iconFontCNCssRegex = /\/\/at\.alicdn\.com\/t\/a\/font\w+\.css/i
+const iconFontCNCssRegex = /\/\/at\.alicdn\.com\/t\/(a\/)?font\w+\.css/i
 
 // eslint-disable-next-line node/no-deprecated-api
 const fsReadFile = promisify(fs.readFile)
