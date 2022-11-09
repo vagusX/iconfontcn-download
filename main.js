@@ -151,6 +151,10 @@ async function download(config) {
 
     spinner.succeed('💪 Finish downloading')
 
+    console.log(
+      `⚠️ Warning: Please Please pay attention to the legality and certificate of the downloaded resources from ${cssUrl}`
+    )
+
     if (cssOffline && extnameList.includes('css')) {
       await offlineCss({ cssUrl, dir, filename })
     }
