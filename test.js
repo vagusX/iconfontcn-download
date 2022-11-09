@@ -30,7 +30,7 @@ describe('test case for iconfontcn-download', () => {
 
   it('fixtures #2', async () => {
     const dir = path.join(os.tmpdir(), 'font')
-    const urlPrefix = '//at.alicdn.com/t/font_1669148_hw2if5r0m5e'
+    const urlPrefix = '//at.alicdn.com/t/a/font_1432262_0gpk8o1jvjfn'
     await download({
       cssUrl: `${urlPrefix}.css`,
       dir,
@@ -51,7 +51,7 @@ describe('test case for iconfontcn-download', () => {
 
   it('fixtures #3', async () => {
     const dir = path.join(os.tmpdir(), 'font')
-    const urlPrefix = '//at.alicdn.com/t/font_1669148_hw2if5r0m5e'
+    const urlPrefix = '//at.alicdn.com/t/a/font_1432262_0gpk8o1jvjfn'
     await download({
       cssUrl: `${urlPrefix}.css`,
       dir,
